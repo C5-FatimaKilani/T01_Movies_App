@@ -1,5 +1,5 @@
 
-const Favorites = () => {
+const Favorites = ({favorites, setFavorites}) => {
 
     return(
         <div>

@@ -45,12 +45,12 @@ Navigate("/")
             list.map((element, index) => {
               return (
                 <Col className="col-12 col-lg-3 col-md-6 col-sm-12">
-                  <Card>
-                    <Link to={`/${element.id}`}><Card.Img
+                  <Card style={{borderRadius: "20px", transition: "all 0.3s ease 0s", marginTop:"10%"}}>
+                    <Link to={`/movie/${element.id}`}><Card.Img
                     alt={element.title}
                       variant="top"
                       src={`https://image.tmdb.org/t/p/w500${element.poster_path}`}
-                      style={{cursor:"pointer"}}
+                      style={{cursor:"pointer", borderRadius: "20px"}}
                       onClick={<moviePage/>}
                     /></Link>
                     <Card.Body>
