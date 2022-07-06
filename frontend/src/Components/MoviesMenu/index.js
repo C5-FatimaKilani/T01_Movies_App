@@ -1,10 +1,16 @@
 import { React, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 import axios from "axios";
 import Card from "react-bootstrap/Card";
-import Col from "react-bootstrap/Col";
-import Row from "react-bootstrap/Row";
-import { AiOutlineHeart } from "react-icons/ai";
+
+import "./style.css";
+import MoviePage from "../MoviePage";
+import { Navigate } from "react-router-dom";
+
+
 const MoviesMenu = () => {
   const [list, setList] = useState([]);
 
@@ -22,34 +28,41 @@ const MoviesMenu = () => {
       });
   };
 
+  const getMoviePage = () => {
+Navigate("/")
+  }
+
   useEffect(() => {
     getAllMovies();
   }, []);
 
   return (
-    <div>
-      <Card.Title> Popular Movies</Card.Title>
-      <Row xs={1} md={2} className="g-4">
-        {list.length &&
-          list.from({ length: 5 }).map((element, index) => {
-            <Col>
-              <Card>
-                <Link to={element.id}>
-                  <Card.Img
-                    variant="top"
+    <div className="container">
+    
+      <Container>
+        <Row>
+          {list.length &&
+            list.map((element, index) => {
+              return (
+                <Col className="col-12 col-lg-3 col-md-6 col-sm-12">
+                  <Card>
+                    <Link to={`/${element.id}`}><Card.Img
                     alt={element.title}
-                    src={`https://image.tmdb.org/t/p/w500${element.poster_path}`}
-                  />
-                </Link>
-                <Card.Body>
-                  <Card.Title>{element.original_title}</Card.Title>
-                  <span>{element.vote_average}</span>
-                  <AiOutlineHeart />
-                </Card.Body>
-              </Card>
-            </Col>;
-          })}
-      </Row>
+                      variant="top"
+                      src={`https://image.tmdb.org/t/p/w500${element.poster_path}`}
+                      style={{cursor:"pointer"}}
+                      onClick={<moviePage/>}
+                    /></Link>
+                    <Card.Body>
+                      <Card.Text>{element.original_title}</Card.Text>
+                      <Card.Text>Vote Average : {element.vote_average}</Card.Text>
+                    </Card.Body>
+                  </Card>
+                </Col>
+              );
+            })}
+        </Row>
+      </Container>
     </div>
   );
 };
