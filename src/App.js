@@ -12,6 +12,8 @@ function App() {
   const [favorites, setFavorites] = useState(
     JSON.parse(localStorage.getItem("favorites")) || []
   );
+
+  const [movie , setMovie] = useState([])
   return (
     <div className="App">
       <NavBar favorites={favorites} setFavorites={setFavorites} />
@@ -21,13 +23,13 @@ function App() {
           element={
             <>
               {" "}
-              <Home />
-              <MoviesMenu />
+              <Home movie={movie} setMovie={setMovie}/>
+              <MoviesMenu movie={movie} setMovie={setMovie}/>
             </>
           }
         />
 
-        <Route path="/fav" element={<Favorites />} />
+        <Route path="/fav" element={<Favorites favorites={favorites} setFavorites={setFavorites} />} />
 
         <Route
           path="/movie/:id"

@@ -10,7 +10,7 @@ import "./style.css";
 import MoviePage from "../MoviePage";
 import { Navigate } from "react-router-dom";
 
-const MoviesMenu = () => {
+const MoviesMenu = ({movie }) => {
   const [list, setList] = useState([]);
   const [page, setPage] = useState(1);
 
@@ -31,7 +31,7 @@ const MoviesMenu = () => {
   const moreMovies = () => {
     axios
       .get(
-        `https://api.themoviedb.org/3/movie/popular?api_key=1bfa430aada4409bfa6a3c5528128e8a&page=${page}`
+        `https://api.themoviedb.org/3/movie/popular?api_key=1bfa430aada4409bfa6a3c5528128e8a&page=${page+1}`
       )
       .then((result) => {
         console.log(result.data.results);
@@ -51,13 +51,17 @@ const MoviesMenu = () => {
       getAllMovies();
     }
   }, []);
-
+console.log(movie);
+let ads= movie.length?movie:list
   return (
+
     <div className="container">
       <Container>
         <Row>
           {list.length &&
-            list.map((element, index) => {
+          //  {movie.length>0}
+        
+          ads.map((element, index) => {
               return (
                 <Col className="col-12 col-lg-3 col-md-6 col-sm-12">
                   <Card

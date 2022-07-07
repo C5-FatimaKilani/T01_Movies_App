@@ -6,18 +6,25 @@ import Button from "react-bootstrap/Button";
 
 import Card from "react-bootstrap/Card";
 import { useState } from "react";
-const Favorites = () => {
+const Favorites = ({ favorites, setFavorites }) => {
     const [favory, setFavory] = useState([]) 
 
   const myFav = JSON.parse(localStorage.getItem("favorites"));
 
   const delFav = (id) => {
-    console.log(id);
-     favory = myFav.filter((elem) => {
-      return elem.id != id;
+    let favList = favorites.filter((elem) => {
+      return elem.id !== id;
     });
-    localStorage.setItem("favorites", JSON.stringify(favory));
+    localStorage.setItem("favorites", JSON.stringify(favList));
+    setFavorites(favList);
   };
+  // const delFav = (id) => {
+  //   console.log(id);
+  //    favory = myFav.filter((elem) => {
+  //     return elem.id != id;
+  //   });
+  //   localStorage.setItem("favorites", JSON.stringify(favory));
+  // };
 
   console.log(myFav);
   return (

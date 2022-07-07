@@ -61,7 +61,7 @@ const MoviePage = ({ favorites, setFavorites }) => {
           style={{
               backgroundImage: `url(https://image.tmdb.org/t/p/w500${details.poster_path})`,
             backgroundRepeat: "no-repeat",
-            backgroundSize:"auto",
+            backgroundSize:"cover",
             backgroundBlendMode: "lighten",
            
           }}

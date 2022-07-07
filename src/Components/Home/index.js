@@ -8,7 +8,7 @@ import SplitButton from "react-bootstrap/SplitButton";
 
 import "./style.css";
 
-const Home = () => {
+const Home = ({setMovie}) => {
   const [movies, setMovies] = useState([]);
   const [inputVal, setInputVal] = useState("");
 
@@ -18,8 +18,8 @@ const Home = () => {
         `https://api.themoviedb.org/3/search/movie?api_key=1bfa430aada4409bfa6a3c5528128e8a&query=${inputVal}`
       )
       .then((result) => {
-        console.log(result);
-        setMovies(result);
+        console.log(result.data.results);
+        setMovie(result.data.results);
       })
       .catch((error) => {});
   };
