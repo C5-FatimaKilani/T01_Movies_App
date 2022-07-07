@@ -9,16 +9,32 @@ import NavBar from "./Components/NavBar";
 import Home from "./Components/Home";
 
 function App() {
-  const [favorites, setFavorites] = useState([])
+  const [favorites, setFavorites] = useState(
+    JSON.parse(localStorage.getItem("favorites")) || []
+  );
   return (
     <div className="App">
       <NavBar favorites={favorites} setFavorites={setFavorites} />
       <Routes>
-        <Route path="/" element={<>  <Home /><MoviesMenu/></> } />
+        <Route
+          path="/"
+          element={
+            <>
+              {" "}
+              <Home />
+              <MoviesMenu />
+            </>
+          }
+        />
 
-        <Route path="/fav" element={<Favorites favorites={favorites} setFavorites={setFavorites} />} />
+        <Route path="/fav" element={<Favorites />} />
 
-        <Route path="/movie/:id" element={<MoviePage favorites={favorites} setFavorites={setFavorites} />} />
+        <Route
+          path="/movie/:id"
+          element={
+            <MoviePage favorites={favorites} setFavorites={setFavorites} />
+          }
+        />
       </Routes>
     </div>
   );

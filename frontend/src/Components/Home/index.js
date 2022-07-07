@@ -7,7 +7,7 @@ const Home = () => {
     <div>
     <Card className="bg-dark text-white">
       <Card.Img style={{height:"500px"}} src={`https://image.tmdb.org/t/p/w500/wcKFYIiVDvRURrzglV9kGu7fpfY.jpg`} alt="Card image" />
-      <Card.ImgOverlay>
+      <Card.ImgOverlay style={{marginTop:"20%"}}>
         <Card.Title>Doctor Strange in the Multiverse of Madness</Card.Title>
         <Card.Text>
         Doctor Strange, with the help of mystical allies both old and new, traverses the mind-bending and dangerous alternate realities of the Multiverse to confront a mysterious new adversary.
@@ -15,7 +15,7 @@ const Home = () => {
         
       </Card.ImgOverlay>
     </Card>
-    <form action="" style={{marginTop:"5%", width:"80px"}} />
+    <form action="" style={{marginTop:"-7%", width:"80px"}} />
           <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4">
             <div class="input-group">
               <input type="search" placeholder="What're you searching for?" aria-describedby="button-addon1" class="form-control border-0 bg-light" />
