@@ -57,25 +57,28 @@ const MoviePage = ({ favorites, setFavorites }) => {
     <div>
       {details && (
         <div
+        className="mainDiv"
           style={{
               backgroundImage: `url(https://image.tmdb.org/t/p/w500${details.poster_path})`,
             backgroundRepeat: "no-repeat",
-            width: "700%",
-            height: "600px",
+            backgroundSize:"auto",
+            backgroundBlendMode: "lighten",
+           
           }}
         >
-          <Card style={{ width: "25rem" }}>
+          
+          <Card className="cardy" style={{ width: "80rem", backgroundColor:"black", marginLeft:"2%" , marginTop:"2%", marginBottom:"2%"}}>
             <Container>
               <Row>
                 <Col className="col-12 col-lg-3 col-md-6 col-sm-12">
                   <Card.Img
                     variant="top"
-                    style={{width:"200%", hight:"300%"}}
+                    style={{width:"200%", hight:"100%"}}
                     src={`https://image.tmdb.org/t/p/w500${details.poster_path}`}
                   />
                 </Col>
-                <Col className="col-12 col-lg-8 col-md-6 col-sm-12">
-                  <Card.Body style={{ opacity: "0.5" }}>
+                <Col className="col-12 col-lg-8 col-md-6 col-sm-12" style={{ width: "70rem" }}>
+                  <Card.Body style={{color:"white"}}>
                     <Card.Title>{details.original_title}</Card.Title>
                     <Card.Text>{details.overview}</Card.Text>
                   </Card.Body>
