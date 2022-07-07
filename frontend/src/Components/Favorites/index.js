@@ -5,14 +5,20 @@ import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 
 import Card from "react-bootstrap/Card";
+import { useState } from "react";
 const Favorites = () => {
-const delFav = () => {
-     myFav.filter((elem) => {
-        return elem.id !== myFav.id;
-      });
-}
+    const [favory, setFavory] = useState([]) 
 
   const myFav = JSON.parse(localStorage.getItem("favorites"));
+
+  const delFav = (id) => {
+    console.log(id);
+     favory = myFav.filter((elem) => {
+      return elem.id != id;
+    });
+    localStorage.setItem("favorites", JSON.stringify(favory));
+  };
+
   console.log(myFav);
   return (
     <div>
@@ -39,16 +45,23 @@ const delFav = () => {
                       />
                     </Link>
                     <Card.Body>
-                      
-                    <Button style={{display:'flex', justifyContent:"center", marginLeft:"10%", marginTop:"1%", marginBottom:"1%", width:"80%", backgroundColor:"red"}}
-        variant="success"
-        onClick={() => {
-         
-          delFav();
-        }}
-      >
-         X
-      </Button>{" "}
+                      <Button
+                        style={{
+                          display: "flex",
+                          justifyContent: "center",
+                          marginLeft: "10%",
+                          marginTop: "1%",
+                          marginBottom: "1%",
+                          width: "80%",
+                          backgroundColor: "red",
+                        }}
+                        variant="success"
+                        onClick={() => {
+                          delFav(element.id);
+                        }}
+                      >
+                        X
+                      </Button>{" "}
                     </Card.Body>
                   </Card>
                 </Col>

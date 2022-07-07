@@ -63,6 +63,7 @@ const MoviesMenu = () => {
                   <Card
                     style={{
                       borderRadius: "20px",
+                      border:"5px",
                       transition: "all 0.3s ease 0s",
                       marginTop: "10%",
                     }}

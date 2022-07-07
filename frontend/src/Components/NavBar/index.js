@@ -2,16 +2,17 @@ import { React } from "react";
 import { Image, Nav } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
+import Card from "react-bootstrap/Card";
 import { LinkContainer } from "react-router-bootstrap";
 import { BiDonateHeart } from "react-icons/bi";
-import logo from "./mylogo.png";
-import logoName from "./logoName.png";
+import "./style.css"
+import logo from "./logo.png";
 import { Link } from "react-router-dom";
 
 const NavBar = ({ favorites, setFavorites }) => {
   return (
     <div>
-      <Navbar bg="dark" variant="dark">
+      <Navbar className="navbar"  variant="dark">
         <Container>
           <Navbar.Brand
             style={{ display: "flex", justifyContent: "space-evenly" }}
@@ -21,24 +22,19 @@ const NavBar = ({ favorites, setFavorites }) => {
               <Image
                 alt=""
                 src={logo}
-                width="200"
+                width="100"
                 height="85"
                 className="d-inline-block align-top"
               />
             </LinkContainer>
-            {/* <Image
-              alt=""
-              src={logoName}
-              width="200"
-              height="85"              className="d-inline-block align-top"
-             
-            /> */}{" "}
+            <Card.Text style={{fontSize:"200%" , marginLeft:"10%", marginTop:"2%", fontFamily:"monospace"}}>Stream App</Card.Text>
             <Link to={"/fav"}>
               <svg
-                style={{ width: "100px", marginLeft: "900%", color: "white" }}
+              className="svg"
+                style={{ marginTop:"10px", marginLeft: "700%", color: "white" }}
                 xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
+                width="40"
+                height="40"
                 fill="currentColor"
                 class="bi bi-heart"
                 viewBox="0 0 16 16"

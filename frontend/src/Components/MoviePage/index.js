@@ -58,10 +58,9 @@ const MoviePage = ({ favorites, setFavorites }) => {
       {details && (
         <div
           style={{
-            opacity: "0.5",
-            backgroundImage: `url(https://image.tmdb.org/t/p/w500${details.poster_path})`,
+              backgroundImage: `url(https://image.tmdb.org/t/p/w500${details.poster_path})`,
             backgroundRepeat: "no-repeat",
-            width: "100%",
+            width: "700%",
             height: "600px",
           }}
         >
@@ -71,6 +70,7 @@ const MoviePage = ({ favorites, setFavorites }) => {
                 <Col className="col-12 col-lg-3 col-md-6 col-sm-12">
                   <Card.Img
                     variant="top"
+                    style={{width:"200%", hight:"300%"}}
                     src={`https://image.tmdb.org/t/p/w500${details.poster_path}`}
                   />
                 </Col>
