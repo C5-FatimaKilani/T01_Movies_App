@@ -48,9 +48,9 @@ const Home = () => {
         movies.map((elem) => {
           return(<> */}
           <InputGroup
-            className="mb-3"
+            className="mb-5 "
             style={{
-              marginTop: "-10%",
+              marginTop: "-7%",
               marginBottom: "20%",
               width: "70%",
               marginLeft: "15%",

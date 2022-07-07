@@ -7,7 +7,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import ListGroup from "react-bootstrap/ListGroup";
-
+import "./style.css";
 const MoviePage = ({ favorites, setFavorites }) => {
   const [details, setDetails] = useState({});
   const { id } = useParams();
@@ -66,20 +66,22 @@ const MoviePage = ({ favorites, setFavorites }) => {
            
           }}
         >
-          
-          <Card className="cardy" style={{ width: "80rem", backgroundColor:"black", marginLeft:"2%" , marginTop:"2%", marginBottom:"2%"}}>
+          <div >
+          <Card  className="cardy" style={{ width: "70rem", marginLeft:"5%" , marginTop:"2%", marginBottom:"2%" }}>
             <Container>
               <Row>
                 <Col className="col-12 col-lg-3 col-md-6 col-sm-12">
                   <Card.Img
+                  className="imgCard"
                     variant="top"
-                    style={{width:"200%", hight:"100%"}}
+                   
+                    
                     src={`https://image.tmdb.org/t/p/w500${details.poster_path}`}
                   />
                 </Col>
-                <Col className="col-12 col-lg-8 col-md-6 col-sm-12" style={{ width: "70rem" }}>
+                <Col className="col-12 col-lg-8 col-md-6 col-sm-12" style={{ width: "40rem", marginLeft:"5%" }}>
                   <Card.Body style={{color:"white"}}>
-                    <Card.Title>{details.original_title}</Card.Title>
+                    <Card.Title style={{fontSize:"30px"}}>{details.original_title}</Card.Title>
                     <Card.Text>{details.overview}</Card.Text>
                   </Card.Body>
                   <ListGroup className="list-group-flush">
@@ -118,6 +120,7 @@ const MoviePage = ({ favorites, setFavorites }) => {
               </Row>
             </Container>
           </Card>
+          </div>
         </div>
       )}
     </div>

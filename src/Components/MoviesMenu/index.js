@@ -66,6 +66,7 @@ const MoviesMenu = () => {
                       border:"5px",
                       transition: "all 0.3s ease 0s",
                       marginTop: "10%",
+                      
                     }}
                   >
                     <Link to={`/movie/${element.id}`}>
