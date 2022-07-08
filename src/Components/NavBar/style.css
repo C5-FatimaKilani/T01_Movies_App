@@ -3,3 +3,14 @@
    
 }
 
+ .svg{
+    /* padding-left: 90%; */
+    margin-top: 6%;
+    margin-right: -177%;
+    text-decoration: none;
+    color: white;
+}
+
+.pageBut:focus{
+background-color: red;
+}

@@ -7,10 +7,22 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import ListGroup from "react-bootstrap/ListGroup";
+import ButtonGroup from 'react-bootstrap/ButtonGroup';
+import { AiOutlineHeart } from 'react-icons/ai';
+import ToggleButton from 'react-bootstrap/ToggleButton';
+
 import "./style.css";
 const MoviePage = ({ favorites, setFavorites }) => {
   const [details, setDetails] = useState({});
   const { id } = useParams();
+  const [checked, setChecked] = useState(false);
+  const [radioValue, setRadioValue] = useState('1');
+
+  const radios = [
+    { name: 'Active', value: '1' },
+    { name: 'Radio', value: '2' },
+    { name: 'Radio', value: '3' },
+  ];
 
   const getDetail = () => {
     axios
@@ -93,7 +105,39 @@ const MoviePage = ({ favorites, setFavorites }) => {
                     </ListGroup.Item>
                   </ListGroup>
                   <Card.Body>
-                    <Button
+                  <ToggleButton
+        className="mb-2"
+        id="toggle-check"
+        type="checkbox"
+        variant="outline-primary"
+        checked={checked}
+        value="1"
+        onChange={(e) => setChecked(e.currentTarget.checked)}
+        style={{color:"red"}}
+        onClick={() => {
+          if (!favorites.length) {
+            addToFav(details);
+            console.log("add first");
+          } else {
+            favorites.map((elem) => {
+              if (elem.id === details.id && favorites.length) {
+                console.log("delete");
+                deleteFav(elem.id);
+              } else {
+                console.log("add");
+
+                addToFav(details);
+              }
+            });
+          }
+        }}
+      >
+        <AiOutlineHeart/>
+        
+      </ToggleButton>
+
+                    {/* <Button
+                    className="pageBut"
                       onClick={() => {
                         if (!favorites.length) {
                           addToFav(details);
@@ -114,7 +158,7 @@ const MoviePage = ({ favorites, setFavorites }) => {
                       variant="success"
                     >
                       Add To Favorites
-                    </Button>{" "}
+                    </Button>{" "} */}
                   </Card.Body>
                 </Col>
               </Row>
