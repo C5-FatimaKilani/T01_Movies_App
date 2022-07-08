@@ -1,9 +1,11 @@
-.test{
-    background-color: red;
+.cardo{
+
+box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+
 }
-.test2{
-    background-color: blue;
+.cardo :hover{
+    transition: transform .5s;
+    transform: scale3d(1.008, 1.008, 4);
 }
-.test3{
-    background-color: orange;
-}
+
+

@@ -36,6 +36,7 @@ const Favorites = ({ favorites, setFavorites }) => {
               return (
                 <Col className="col-12 col-lg-3 col-md-6 col-sm-12">
                   <Card
+                  className="cardo"
                     style={{
                       borderRadius: "20px",
                       transition: "all 0.3s ease 0s",

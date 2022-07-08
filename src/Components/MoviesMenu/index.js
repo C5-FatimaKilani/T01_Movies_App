@@ -65,11 +65,14 @@ let ads= movie.length?movie:list
               return (
                 <Col className="col-12 col-lg-3 col-md-6 col-sm-12">
                   <Card
+                  
+                  className="cardo"
                     style={{
                       borderRadius: "20px",
                       border:"5px",
-                      transition: "all 0.3s ease 0s",
+                      
                       marginTop: "10%",
+                      
                       
                     }}
                   >
